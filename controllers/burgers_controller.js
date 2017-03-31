@@ -9,9 +9,12 @@ var models = require("../models");
 
 
 router.get("/", function(req, res) {  
-  models.Burger.all(function(burgerdata){
+  models.Burger.findAll({}).then(function(burgerdata){
     console.log(burgerdata);
-    res.render('index', {burgerdata});
+    res.render('index', {
+      burgerdata
+    });
+    
   });
 });
 
