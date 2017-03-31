@@ -9,21 +9,21 @@ var models = require("../models");
 
 
 router.get("/", function(req, res) {  
-  burger.all(function(burgerdata){
+  models.Burger.all(function(burgerdata){
     console.log(burgerdata);
     res.render('index', {burgerdata});
   });
 });
 
 router.post("/burgers/create", function(req, res) {
-  burger.create(req.body.burger_name, function(result){
+  models.Burger.create(req.body.burger_name, function(result){
     res.redirect('/')
   })
 });
 
 
 router.put("/burgers/update", function(req, res) {
-  burger.update(req.body.burger_id, function(result) {
+  models.burger.update(req.body.burger_id, function(result) {
     res.redirect("/");
   });
 });
